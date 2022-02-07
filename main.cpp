@@ -134,7 +134,7 @@ int main(){
                     cout<<"Enter ID:- ";
                     cin>>ID_check;
                     emp.EditEmployee(ID_check,ID);
-                    emp.
+                    
                 }
                 else if(emp_choice==3){
                     cout<<"Enter ID:- ";
