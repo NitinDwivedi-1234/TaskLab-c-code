@@ -11,7 +11,6 @@ class employeeManagment{
         vector<int> arr_emp_id;
         string department;
         vector <string> arr_department;
-        vector <int> arr_department_id;
         void AddEmployee(int id){   
             cout<<"Enter Name:- ";
             cin>>name;
@@ -88,14 +87,14 @@ class employeeManagment{
             cout<<"Enter Department:- ";
             cin>>department;
             arr_department.push_back(department);
-            arr_department_id.push_back(id);
+            arr_emp_id.push_back(id);
         }
         void EditDepartment(int id){
             string department_change;
             cout<<"Enter Department:- ";
             cin>>department_change;
-            for(int i=0;i<arr_department_id.size();++i){
-                if(id==arr_department_id[i]){
+            for(int i=0;i<arr_emp_id.size();++i){
+                if(id==arr_emp_id[i]){
                     cout<<"Enter Department:- ";
                     cin>>department_change;
                     arr_department[i]=department_change;
@@ -104,17 +103,17 @@ class employeeManagment{
             } 
         }
         void DeleteDepartment(int id){
-            for(int i=0;i<arr_department_id.size();++i){
-                if(id==arr_department_id[i]){
+            for(int i=0;i<arr_emp_id.size();++i){
+                if(id==arr_emp_id[i]){
                     arr_department.erase(arr_department.begin()+i);
-                    arr_department_id.pop_back();
+                    arr_emp_id.pop_back();
                     break;
                 }
             }
         }
         void ListDepartment(){
             char key;
-            for(int i=0;i<arr_department_id.size();++i){
+            for(int i=0;i<arr_emp_id.size();++i){
                 cout<<arr_department[i]<<endl;
                 if(i==5){
                     cout<<"\nPress N/n for next page"<<endl;
@@ -137,16 +136,15 @@ class employeeManagment{
         }
 };
 
-class departmentManagment : public employeeManagment{
+class departmentManagment{
     public:
-        employeeManagment emp1;
            
 };
 
 int main(){
     int dep_choice,emp_choice,emp_ID=0,dep_ID=0,ID_check;
     char  choice;
-    departmentManagment emp;
+    employeeManagment  emp;
     while(true){
         cout<<"Press D for Department\n"<<"Press E for Employee\n"<<"Press -1 for Exit"<<"\n";
         cout<<endl;
